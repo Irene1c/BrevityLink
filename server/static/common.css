@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #0C2C3D;
+}
+
+.navbar-nav a {
+  color: white !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1)
+}
+
+.navbar-brand {
+  font-family: 'Aclonica';
+  font-style: italic;
+  font-size: 22px;
+  color: white;
+}
+
+body {
+  background-color: #081B29;
+}
