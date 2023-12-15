@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% set css_file = 'home.css' %}
+
+{% block content %}
+<div class="container mt-3">
+  <form method="POST" class="form-inline">
+    <h3 class="mb-4">URL Shortener</h3>
+    <div class="form-group">
+      <input type="url" class="form-control" id="long-url" name="long-url" placeholder="Enter link to shorten">
+    </div>
+    <input type="submit" value="Shorten URL">
+  </form>
+</div>
+
+{% endblock %}

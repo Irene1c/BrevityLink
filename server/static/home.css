@@ -1,0 +1,13 @@
+body {
+  color: white;
+}
+
+h3 {
+  text-align: center;
+}
+
+input[type="submit"] {
+  background: linear-gradient(180deg, #396073 0%, rgba(57, 96, 115, 0.00) 100%); 
+  border-radius: 25px; 
+  color: white;
+}
