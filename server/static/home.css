@@ -2,12 +2,19 @@ body {
   color: white;
 }
 
-h3 {
+h3, p {
   text-align: center;
+  font-family: 'Aclonica';
+}
+
+p {
+  font-size: 18px;
 }
 
 input[type="submit"] {
   background: linear-gradient(180deg, #396073 0%, rgba(57, 96, 115, 0.00) 100%); 
-  border-radius: 25px; 
+  border-radius: 20px; 
   color: white;
+  text-align: center;
+  padding: 8px;
 }

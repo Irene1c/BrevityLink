@@ -6,6 +6,13 @@ body {
   color: white;
 }
 
+form {
+  border: 1px solid #0ef;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #0ef;
+  padding: 20px 20px 40px;
+}
+
 h2 {
   text-align: center;
 }
