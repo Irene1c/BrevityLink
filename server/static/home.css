@@ -19,7 +19,7 @@ input[type="submit"] {
   padding: 8px;
 }
 
-.table-responsive {
+.table {
   border-radius: 20px; 
   overflow: hidden;
 }
