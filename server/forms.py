@@ -12,3 +12,7 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[validators.Email()])
     password = PasswordField('Password', validators=[validators.Length(min=6)])
     submit = SubmitField('Login')
+
+class ShortenURLForm(FlaskForm):
+    long_url = StringField('URL', validators=[validators.URL()])
+    submit = SubmitField('Shorten URL')
