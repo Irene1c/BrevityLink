@@ -9,10 +9,11 @@
   <form method="POST">
     <div class="row">
       <div class="col-md-10">
-        <input type="url" class="form-control" id="long-url" name="long-url" placeholder="Enter link to shorten">
+        {{ form.hidden_tag() }}
+        {{ form.long_url(class="form-control", placeholder="Enter link to shorten") }}
       </div>
       <div class="col-md-2">
-        <input type="submit" value="Shorten URL">
+	{{ form.submit() }}
       </div>
     </div>
   </form>
