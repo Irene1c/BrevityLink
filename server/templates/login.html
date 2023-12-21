@@ -10,18 +10,20 @@
       <form method="POST">
         <h2>Login</h2>
 
+	{{ form.hidden_tag() }}
+
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+	  {{ form.email(class="form-control", placeholder="Enter email")}}
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+	  {{ form.password(class="form-control", placeholder="Enter password") }}
         </div>
 
         <br />
-        <input type="submit" value="Login" class="form-control">
+	{{ form.submit(class="form-control") }}
       </form>
     </div>
   </div>
