@@ -18,9 +18,17 @@ def create_app():
 
     # Enable CSRF protection globally
     csrf = CSRFProtect(app)
+
     db.init_app(app)
 
     app.register_blueprint(app_views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+
+    # loading models to create the database
+    from server.models import User, Url
+
+    with app.app_context():
+        db.create_all()
+        print('Database created')
 
     return app
