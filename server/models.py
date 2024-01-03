@@ -10,7 +10,9 @@ import uuid
 class User(db.Model, UserMixin):
     """ class to define each user"""
 
-    id = db.Column(db.String(50), primary_key=True, default=str(uuid.uuid4()))
+    id = db.Column(
+            db.String(50),
+            primary_key=True, default=lambda: str(uuid.uuid4()), unique=True)
     username = db.Column(db.String(50))
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(50))
@@ -20,7 +22,9 @@ class User(db.Model, UserMixin):
 class Url(db.Model):
     """ class to define users urls """
 
-    id = db.Column(db.String(50), primary_key=True, default=str(uuid.uuid4()))
+    id = db.Column(
+            db.String(50),
+            primary_key=True, default=lambda: str(uuid.uuid4()), unique=True)
     long_url = db.Column(db.String(500))
     short_url = db.Column(db.String(20), unique=True)
     clicks = db.Column(db.Integer, default=0)
