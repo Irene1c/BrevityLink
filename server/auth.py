@@ -4,6 +4,7 @@ from server.forms import SignupForm, LoginForm
 from server.models import User
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, current_user, logout_user, login_required
 
 
 auth = Blueprint('auth', __name__)
@@ -19,7 +20,16 @@ def login():
         email = login_form.email.data
         password = login_form.password.data
 
-        flash('Logged in.', category='success')
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('app_views.home'))
+            else:
+                flash('Incorrect password! Try again', category='error')
+        else:
+            flash('Email Address does not exist!', category='error')
     else:
         for field, errors in login_form.errors.items():
             flash(f"{login_form[field].label.text}: {errors[0]}", 'error')
@@ -47,6 +57,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
+        login_user(new_user, remember=True)
         flash('Account created! You are now logged in.', category='success')
         return redirect(url_for('app_views.home'))
 
@@ -60,7 +71,9 @@ def signup():
 
 
 @auth.route('/logout')
+@login_required
 def logout():
-    """logout"""
+    """logout a user"""
 
-    pass
+    logout_user()
+    return redirect('/login')

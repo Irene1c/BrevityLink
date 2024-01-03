@@ -1,9 +1,14 @@
+"""app views"""
 from flask import Blueprint, render_template, flash
 from server.forms import ShortenURLForm
+from flask_login import current_user, login_required
+
 
 app_views = Blueprint('app_views', __name__)
 
+
 @app_views.route('/', methods=['GET', 'POST'])
+@login_required
 def home():
     url_form = ShortenURLForm()
 
