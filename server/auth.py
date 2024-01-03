@@ -1,10 +1,18 @@
-from flask import Blueprint, render_template, request, flash
+"""auth views"""
+from flask import Blueprint, render_template, flash, redirect, url_for
 from server.forms import SignupForm, LoginForm
+from server.models import User
+from . import db
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    """login view"""
+
     login_form = LoginForm()
 
     if login_form.validate_on_submit():
@@ -19,8 +27,11 @@ def login():
 
     return render_template('login.html', form=login_form)
 
+
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
+    """signup view"""
+
     signup_form = SignupForm()
 
     if signup_form.validate_on_submit():
@@ -29,7 +40,15 @@ def signup():
         password = signup_form.password.data
         password1 = signup_form.password1.data
 
-        flash('Sign up successful! You can now log in.', category='success')
+        new_user = User(
+                username=username, email=email,
+                password=generate_password_hash(
+                    password, method='pbkdf2:sha256'))
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash('Account created! You are now logged in.', category='success')
+        return redirect(url_for('app_views.home'))
 
     else:
         # Flash first error message and stop processing
@@ -39,6 +58,9 @@ def signup():
 
     return render_template('signup.html', form=signup_form)
 
+
 @auth.route('/logout')
 def logout():
+    """logout"""
+
     pass
