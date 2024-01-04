@@ -29,7 +29,7 @@ class Url(db.Model):
     short_url = db.Column(db.String(20), unique=True)
     clicks = db.Column(db.Integer, default=0)
     created_date = db.Column(db.DateTime, default=datetime.now)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.String(50), db.ForeignKey('user.id'), nullable=False)
 
     def __init__(self, **kwargs):
         """class constructor"""

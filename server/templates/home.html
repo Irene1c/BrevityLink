@@ -31,12 +31,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href="http://www.examplesite/folder/data.com">http://www.examplesite/folder/data.com</a></td>
-          <td><a href="/a4H21f">/a4H21f</a></td>
-          <td>2</td>
-	  <td><button class="btn btn-danger btn-sm">Delete</button></td>
-        </tr>
+        {% for url in user_urls %}
+          <tr>
+	    <td><a href="{{ url.long_url }}">{{ url.long_url }}</a></td>
+	    <td><a href="{{url.short_url }}">{{url.short_url }}</a></td>
+	    <td>{{ url.clicks }}</td>
+	    <td><button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
