@@ -52,7 +52,6 @@ def home():
 
 
 @app_views.route('/<short_url>')
-@login_required
 def redirect_url(short_url):
     """redirect the short url to its corresponding long url"""
 
