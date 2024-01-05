@@ -1,5 +1,5 @@
 """app views"""
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, url_for, abort
 from server.forms import ShortenURLForm
 from server.models import Url
 from . import db
@@ -46,6 +46,23 @@ def home():
     return render_template(
             'home.html',
             form=url_form, user_urls=user_urls, form_submitted=form_submitted)
+
+
+@app_views.route('/<short_url>')
+@login_required
+def redirect_url(short_url):
+    """redirect the short url to its corresponding long url"""
+
+    url = Url.query.filter_by(short_url=short_url).first()
+    if url:
+        # increment click count
+        url.clicks = url.clicks + 1
+        db.session.commit()
+
+        # redirecting to long url
+        return redirect(url.long_url)
+    else:
+        abort(404)
 
 
 @app_views.route('/delete_url/<url_id>', methods=['POST'])
