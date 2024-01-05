@@ -46,3 +46,19 @@ def home():
     return render_template(
             'home.html',
             form=url_form, user_urls=user_urls, form_submitted=form_submitted)
+
+
+@app_views.route('/delete_url/<url_id>', methods=['POST'])
+@login_required
+def delete_url(url_id):
+    """deletes a url"""
+
+    url = Url.query.get(url_id)
+
+    if url and url.user_id == current_user.id:
+        db.session.delete(url)
+        db.session.commit()
+        flash('URL deleted successfully', 'success')
+
+    #reload the page to update the url table
+    return redirect(url_for('app_views.home'))

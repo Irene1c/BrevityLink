@@ -46,7 +46,12 @@
 	    <td><a href="{{ url.long_url }}">{{ url.long_url }}</a></td>
 	    <td><a href="{{url.short_url }}">{{url.short_url }}</a></td>
 	    <td>{{ url.clicks }}</td>
-	    <td><button class="btn btn-danger btn-sm">Delete</button></td>
+	    <td>
+	      <form method="POST" action="{{ url_for('app_views.delete_url', url_id=url.id) }}">
+	        {{ form.hidden_tag() }}
+	        <button class="btn btn-danger btn-sm">Delete</button>
+	      </form>
+	    </td>
           </tr>
         {% endfor %}
       </tbody>
