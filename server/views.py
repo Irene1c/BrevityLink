@@ -33,6 +33,9 @@ def home():
 
         form_submitted = True
 
+        # redirect page after form submission
+        return redirect(url_for('app_views.home'))
+
     else:
         for field, errors in url_form.errors.items():
             flash(f"{url_form[field].label.text}: {errors[0]}", 'error')
