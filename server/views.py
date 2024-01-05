@@ -1,5 +1,5 @@
 """app views"""
-from flask import Blueprint, render_template, flash, redirect, url_for, abort
+from flask import Blueprint, render_template, flash, redirect, url_for
 from server.forms import ShortenURLForm
 from server.models import Url
 from . import db
@@ -65,7 +65,7 @@ def redirect_url(short_url):
         # redirecting to long url
         return redirect(url.long_url)
     else:
-        abort(404)
+        return render_template('not_found.html'), 404
 
 
 @app_views.route('/delete_url/<url_id>', methods=['POST'])
