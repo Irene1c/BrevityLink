@@ -31,15 +31,18 @@ def home():
 
             flash('URL shortened successfully', 'success')
 
-        # Redirect to the same page to clear the form
-        return redirect(url_for('app_views.home'))
+        form_submitted = True
 
     else:
         for field, errors in url_form.errors.items():
             flash(f"{url_form[field].label.text}: {errors[0]}", 'error')
             break
 
+        form_submitted = False
+
     # Use the 'urls' relationship to get a user's URLs
     user_urls = current_user.urls
 
-    return render_template('home.html', form=url_form, user_urls=user_urls)
+    return render_template(
+            'home.html',
+            form=url_form, user_urls=user_urls, form_submitted=form_submitted)
