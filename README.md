@@ -19,12 +19,10 @@ BrevityLink is a simple Flask-based URL shortener that allows you to generate sh
 
 ### Installation and Project Setup
 
-* Fork the repository
-
 * Clone the repository:
 
 ```bash
-  git clone https://github.com/your-username/BrevityLink.git
+  git clone https://github.com/Irene1c/BrevityLink.git
 ```
 
 * Go to the project directory
@@ -48,12 +46,20 @@ BrevityLink is a simple Flask-based URL shortener that allows you to generate sh
 
 #### Configuration
 
-Create a `config.py` file in the root directory. You can use `config_example.py` as a template:
+* Create a Configuration File:
+
+In the root directory of your project, create a new file named `config.py`.
+You can use the provided template `config_example.py` as a starting point:
 
 ```bash
   cp config_example.py config.py
 ```
-Edit `config.py` to set your configuration variables for your app.
+
+Open config.py using your preferred text editor.
+Set the values of the configuration variables for your app.
+At the very least, make sure to set your `SECRET_KEY`.
+
+By configuring the config.py file, you customize your application settings to suit your needs. Ensure that all necessary variables are appropriately set for the smooth functioning of your app.
 
 ### Database Setup
 The app uses Flask-SQLAlchemy with SQLite as the default database. The database file will be created automatically when you run the app.
@@ -73,10 +79,10 @@ The app uses Flask-SQLAlchemy with SQLite as the default database. The database 
 
 3. **Shortening URLs:**
     - Enter the long URL you want to shorten into the provided form.
-    - Click on the `Shorten` button to generate a short link.
+    - Click on the `Shorten URL` button to generate a short link.
 
 4. **Managing Shortened URLs:**
-   - To delete a shortened URL, find the entry in the table and click the "Delete" button.
+   - To delete a shortened URL, find the entry in the table and click the `Delete` button.
 
 5. **Redirecting:**
     -To redirect, simply visit the shortened URL using the following format:
