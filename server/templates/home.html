@@ -43,8 +43,8 @@
       <tbody>
         {% for url in user_urls %}
           <tr>
-	    <td><a href="{{ url.long_url }}">{{ url.long_url }}</a></td>
-	    <td><a href="{{url.short_url }}">{{url.short_url }}</a></td>
+	    <td><a href="{{ url.long_url }}" target="_blank">{{ url.long_url }}</a></td>
+	    <td><a href="{{url.short_url }}" target="_blank">{{url.short_url }}</a></td>
 	    <td>{{ url.clicks }}</td>
 	    <td>
 	      <form method="POST" action="{{ url_for('app_views.delete_url', url_id=url.id) }}">
