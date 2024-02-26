@@ -34,8 +34,8 @@ BrevityLink is a simple Flask-based URL shortener that allows you to generate sh
 * Create a virtual environment (optional but recommended):
 
 ```bash
-  python3 -m venv venv
-  source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+  python -m venv venv
+  source venv/bin/activate  # On Windows, use `source venv/Scripts/activate`
 ```
 
 * Install dependencies:
