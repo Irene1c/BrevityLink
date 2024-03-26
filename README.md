@@ -11,6 +11,15 @@ BrevityLink is a simple Flask-based URL shortener that allows you to generate sh
   - **Logging In:** Users can securely log in to their accounts.
   - **Signing Up:** New users can create accounts to manage and track their short links.
 
+## Technologies Used
+
+- **HTML, CSS**: Frontend technologies used to create the user interface.
+- **Bootstrap**: A frontend framework used for styling and layout.
+- **Flask**: A lightweight web framework for Python used to build the backend server.
+- **Flask-SQLAlchemy**: Simplifying database management in Flask.
+- **Flask-Login**: Handling user authentication and sessions in Flask.
+- **Flask-WTF**: Simplifying form handling and providing CSRF protection in Flask applications.
+
 ## Getting Started
 
 ### Prerequisites
