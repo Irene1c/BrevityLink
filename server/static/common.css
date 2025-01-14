@@ -6,6 +6,13 @@
   color: white !important;
 }
 
+.nav-link:hover {
+  background-color: #1F8A9C;
+  text-decoration: underline;
+  border-radius: 25px;
+  padding: 6px;
+}
+
 .navbar-toggler-icon {
   filter: invert(1)
 }
@@ -14,7 +21,7 @@
   font-family: 'Aclonica';
   font-style: italic;
   font-size: 22px;
-  color: white;
+  color: white !important;
 }
 
 body {
