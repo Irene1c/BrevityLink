@@ -6,13 +6,13 @@
 <div class="container mt-3">
   <h3 class="mb-3">URL Shortener</h3>
   <p class="mb-4">"Empower your online presence with a URL shortener, where long links transform into concise, easy-to-share wonders!"</p>
-  <form method="POST">
-    <div class="row">
-      <div class="col-md-10">
+  <form method="POST" class="container">
+    <div class="row g-2">
+      <div class="col-8 col-lg-10">
         {{ form.hidden_tag() }}
         {{ form.long_url(id="long_url", class="form-control", placeholder="Enter link to shorten") }}
       </div>
-      <div class="col-md-2">
+      <div class="col-4 col-lg-2">
 	{{ form.submit() }}
       </div>
     </div>
